@@ -1,12 +1,16 @@
+'use client';
+
 import React from 'react';
 import { Card } from '../ui/Card';
 import { Section } from '../ui/Section';
 import Link from 'next/link';
 import { menuData } from '@/data/menuData';
+import { useLanguage } from '@/context/LanguageContext';
 
 export const FeaturedDishes = () => {
     // Select specific items by ID to feature
     const featuredIds = ["14", "18", "23", "22", "19", "24"];
+    const { t } = useLanguage();
 
     // Flatten menu to find items easily
     const allItems = menuData.flatMap(category => category.items);
@@ -16,7 +20,7 @@ export const FeaturedDishes = () => {
     ).filter(item => item !== undefined);
 
     return (
-        <Section title="Platos Destacados" subtitle="Una selección de nuestros sabores más representativos">
+        <Section title={t.home.featuredTitle} subtitle={t.home.featuredSubtitle}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {highlightedItems.map((item, index) => (
                     <Card key={index} className="h-full flex flex-col group">
@@ -45,7 +49,7 @@ export const FeaturedDishes = () => {
                     href="/carta"
                     className="inline-block border-b border-gold text-gold hover:text-white transition-colors pb-1 uppercase tracking-widest text-sm"
                 >
-                    Ver Carta Completa →
+                    {t.home.viewFullMenu}
                 </Link>
             </div>
         </Section>

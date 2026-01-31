@@ -1,8 +1,12 @@
+'use client';
+
 import React from 'react';
 import { Card } from '../ui/Card';
 import { Section } from '../ui/Section';
+import { useLanguage } from '@/context/LanguageContext';
 
 export const Reviews = () => {
+    const { t } = useLanguage();
     const reviews = [
         {
             name: "Marc G.",
@@ -21,11 +25,11 @@ export const Reviews = () => {
             initial: "J",
             text: "Servicio excelente y comida de 10. La causa limeña me transportó directamente a Perú.",
             stars: 5,
-        }
+        },
     ];
 
     return (
-        <Section title="Lo que dicen de nosotros" className="bg-surface/30">
+        <Section title={t.home.reviewsTitle} className="bg-surface/30">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {reviews.map((review, idx) => (
                     <Card key={idx} className="text-center border-gold/10">
@@ -40,7 +44,7 @@ export const Reviews = () => {
                         </div>
 
                         <p className="text-muted italic mb-6 text-sm leading-relaxed">
-                            "{review.text}"
+                            &quot;{review.text}&quot;
                         </p>
 
                         <h4 className="text-text font-medium text-sm">

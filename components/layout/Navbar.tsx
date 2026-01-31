@@ -5,11 +5,14 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Button } from '../ui/Button';
 import { siteConfig } from '@/data/siteConfig';
+import { useLanguage } from '@/context/LanguageContext';
+import { LanguageSelector } from '../ui/LanguageSelector';
 
 export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const pathname = usePathname();
+    const { t } = useLanguage();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -23,9 +26,9 @@ export const Navbar = () => {
     const closeMenu = () => setIsOpen(false);
 
     const navLinks = [
-        { name: 'Inicio', href: '/' },
-        { name: 'Carta', href: '/carta' },
-        { name: 'Contacto', href: '/contacto' },
+        { name: t.nav.home, href: '/' },
+        { name: t.nav.menu, href: '/carta' },
+        { name: t.nav.contact, href: '/contacto' },
     ];
 
     return (
@@ -50,7 +53,7 @@ export const Navbar = () => {
                 <div className="hidden md:flex items-center gap-8">
                     {navLinks.map((link) => (
                         <Link
-                            key={link.name}
+                            key={link.href} // Changed key to href as name is dynamic
                             href={link.href}
                             className={`text-sm uppercase tracking-widest hover:text-gold transition-colors ${pathname === link.href ? 'text-gold border-b border-gold' : 'text-text'
                                 }`}
@@ -58,6 +61,7 @@ export const Navbar = () => {
                             {link.name}
                         </Link>
                     ))}
+                    <LanguageSelector />
                     <Button
                         href={siteConfig.contact.whatsapp}
                         variant="secondary"
@@ -65,22 +69,25 @@ export const Navbar = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        Reservar
+                        {t.nav.book}
                     </Button>
                 </div>
 
                 {/* MOBILE TOGGLE */}
-                <button
-                    className="md:hidden text-gold focus:outline-none"
-                    onClick={toggleMenu}
-                    aria-label="Toggle menu"
-                >
-                    <div className="w-8 h-6 relative flex flex-col justify-between">
-                        <span className={`w-full h-0.5 bg-current transform transition-transform ${isOpen ? 'rotate-45 translate-y-2.5' : ''}`} />
-                        <span className={`w-full h-0.5 bg-current transition-opacity ${isOpen ? 'opacity-0' : 'opacity-100'}`} />
-                        <span className={`w-full h-0.5 bg-current transform transition-transform ${isOpen ? '-rotate-45 -translate-y-3' : ''}`} />
-                    </div>
-                </button>
+                <div className="md:hidden flex items-center gap-4">
+                    <LanguageSelector />
+                    <button
+                        className="text-gold focus:outline-none"
+                        onClick={toggleMenu}
+                        aria-label="Toggle menu"
+                    >
+                        <div className="w-8 h-6 relative flex flex-col justify-between">
+                            <span className={`w-full h-0.5 bg-current transform transition-transform ${isOpen ? 'rotate-45 translate-y-2.5' : ''}`} />
+                            <span className={`w-full h-0.5 bg-current transition-opacity ${isOpen ? 'opacity-0' : 'opacity-100'}`} />
+                            <span className={`w-full h-0.5 bg-current transform transition-transform ${isOpen ? '-rotate-45 -translate-y-3' : ''}`} />
+                        </div>
+                    </button>
+                </div>
 
                 {/* MOBILE DRAWER */}
                 <div
@@ -97,7 +104,7 @@ export const Navbar = () => {
 
                     {navLinks.map((link) => (
                         <Link
-                            key={link.name}
+                            key={link.href}
                             href={link.href}
                             onClick={closeMenu}
                             className="font-heading text-3xl text-text hover:text-gold transition-colors"
@@ -114,7 +121,7 @@ export const Navbar = () => {
                         size="lg"
                         onClick={closeMenu}
                     >
-                        Reservar Mesa
+                        {t.nav.bookTable}
                     </Button>
                 </div>
             </div>

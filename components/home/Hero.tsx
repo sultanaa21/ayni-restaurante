@@ -3,8 +3,11 @@
 import React from 'react';
 import { Button } from '../ui/Button';
 import { siteConfig } from '@/data/siteConfig';
+import { useLanguage } from '@/context/LanguageContext';
 
 export const Hero = () => {
+    const { t } = useLanguage();
+
     return (
         <div className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden">
             {/* Decorative Border Frame - Top Corners */}
@@ -22,12 +25,12 @@ export const Hero = () => {
                         AYNI
                     </h1>
                     <p className="text-sm md:text-base uppercase tracking-[0.3em] text-gold-light/80">
-                        {siteConfig.subtitle}
+                        {t.hero.subtitle}
                     </p>
                 </div>
 
                 <p className="text-lg md:text-xl text-text/80 font-light max-w-2xl mx-auto leading-relaxed italic">
-                    "{siteConfig.description}"
+                    &quot;{t.hero.description}&quot;
                 </p>
 
                 <div className="flex flex-col md:flex-row gap-6 justify-center pt-8">
@@ -38,7 +41,7 @@ export const Hero = () => {
                         target="_blank"
                         className="min-w-[200px]"
                     >
-                        Reservar Mesa
+                        {t.hero.bookTable}
                     </Button>
                     <Button
                         href="/carta"
@@ -46,7 +49,7 @@ export const Hero = () => {
                         size="lg"
                         className="min-w-[200px]"
                     >
-                        Ver Carta
+                        {t.hero.viewMenu}
                     </Button>
                 </div>
             </div>
