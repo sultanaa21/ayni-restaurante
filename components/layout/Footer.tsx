@@ -20,8 +20,8 @@ export const Footer = () => {
                             <a href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer" className="text-gold hover:text-white transition-colors">
                                 Instagram
                             </a>
-                            <a href={siteConfig.social.facebook} target="_blank" rel="noopener noreferrer" className="text-gold hover:text-white transition-colors">
-                                Facebook
+                            <a href={siteConfig.social.tiktok} target="_blank" rel="noopener noreferrer" className="text-gold hover:text-white transition-colors">
+                                TikTok
                             </a>
                         </div>
                     </div>
