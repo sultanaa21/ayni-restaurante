@@ -2,17 +2,18 @@ import React from 'react';
 import { Card } from '../ui/Card';
 import { Section } from '../ui/Section';
 import Link from 'next/link';
+import { menuData } from '@/data/menuData';
 
 export const FeaturedDishes = () => {
-    // Subset of menu items for display
-    const highlightedItems = [
-        { title: "Tiradito al Ají Amarillo", desc: "Corte sashimi con aguacate braseado y gambas rebozadas.", price: "20€" },
-        { title: "Causa Limeña", desc: "Masa de patata, ensaladilla de pollo, aguacate y huevo de codorniz.", price: "14€" },
-        { title: "Ceviche Caliente", desc: "Filete de corvina, leche de tigre amarillo y katsuobushi.", price: "20€" },
-        { title: "Salmón a lo Macho", desc: "Salsa de mariscos cremoso, arroz y puré de patata.", price: "19€" },
-        { title: "Causa de Pulpo", desc: "Pulpo sopleteado en salsa de olivas botija y chimichurri.", price: "18€" },
-        { title: "Lubina al Ajillo", desc: "Yucas fritas, arroz, salsa criolla, emulsión de ajo.", price: "18€" }
-    ];
+    // Select specific items by ID to feature
+    const featuredIds = ["14", "18", "23", "22", "19", "24"];
+
+    // Flatten menu to find items easily
+    const allItems = menuData.flatMap(category => category.items);
+
+    const highlightedItems = featuredIds.map(id =>
+        allItems.find(item => item.id === id)
+    ).filter(item => item !== undefined);
 
     return (
         <Section title="Platos Destacados" subtitle="Una selección de nuestros sabores más representativos">
@@ -26,12 +27,14 @@ export const FeaturedDishes = () => {
                         </div>
 
                         <div className="flex justify-between items-baseline mb-2">
-                            <h3 className="font-heading text-xl text-gold">{item.title}</h3>
-                            <span className="text-gold-light font-bold">{item.price}</span>
+                            <h3 className="font-heading text-xl text-gold">{item?.name}</h3>
+                            <span className="text-gold-light font-bold">
+                                {item?.price !== null ? `${item?.price.toFixed(2).replace('.', ',')} €` : ''}
+                            </span>
                         </div>
 
                         <p className="text-muted text-sm flex-grow">
-                            {item.desc}
+                            {item?.description}
                         </p>
                     </Card>
                 ))}

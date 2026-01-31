@@ -44,7 +44,7 @@ export const Footer = () => {
                         <h4 className="font-heading text-xl text-text mb-6">Contacto</h4>
                         <address className="not-italic space-y-4 text-muted text-sm flex flex-col items-center md:items-start">
                             <p>{siteConfig.contact.address}</p>
-                            <a href={`tel:${siteConfig.contact.phone.replace(/\s/g, '')}`} className="hover:text-gold transition-colors">
+                            <a href={`tel:+34${siteConfig.contact.phone.replace(/\s/g, '')}`} className="hover:text-gold transition-colors">
                                 {siteConfig.contact.phone}
                             </a>
                             <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-gold transition-colors">

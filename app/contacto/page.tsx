@@ -42,7 +42,7 @@ export default function ContactoPage() {
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                                 <div className="bg-surface p-6 border border-white/5 rounded-sm">
                                     <h4 className="text-gold font-bold mb-3 uppercase tracking-wider text-sm">Teléfono</h4>
-                                    <a href={`tel:${siteConfig.contact.phone.replace(/\s/g, '')}`} className="text-text hover:text-gold transition-colors">
+                                    <a href={`tel:+34${siteConfig.contact.phone.replace(/\s/g, '')}`} className="text-text hover:text-gold transition-colors">
                                         {siteConfig.contact.phone}
                                     </a>
                                 </div>

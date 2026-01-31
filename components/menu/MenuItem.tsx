@@ -17,7 +17,10 @@ export const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
                 <div className="absolute left-0 right-0 bottom-2 border-b-2 border-dotted border-gold/30 z-0"></div>
 
                 <span className="text-xl font-bold text-text pl-4 bg-bg relative z-10 shrink-0">
-                    {item.price}€
+                    {item.price !== null
+                        ? `${item.price.toFixed(2).replace('.', ',')} €`
+                        : 'Consultar'
+                    }
                 </span>
             </div>
 
