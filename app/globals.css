@@ -1,26 +1,157 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* Colors */
+  --color-bg: #0B0F14;
+  --color-surface: #151921;
+  --color-text: #F5F5F5;
+  --color-muted: #A3A3A3;
+  --color-gold: #C8A25A;
+  --color-gold-light: #E0C27A;
+  --color-border: rgba(200, 162, 90, 0.2);
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Fonts */
+  --font-heading: var(--font-cormorant);
+  --font-body: var(--font-inter);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Spacing - extending default spacing if needed, typically default is fine */
+
+  /* Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  /* Animations */
+  --animate-fade-in: fadeIn 0.6s ease-out;
+  --animate-glow: glow 2s infinite;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes glow {
+
+    0%,
+    100% {
+      box-shadow: 0 0 5px rgba(200, 162, 90, 0.3);
+    }
+
+    50% {
+      box-shadow: 0 0 20px rgba(200, 162, 90, 0.5);
+    }
   }
 }
 
+/* Base Styles & Custom Utilities */
+:root {
+  /* We can map the theme colors back to CSS vars for usage in non-tailwind contexts if needed, 
+     but V4 creates these automatically as --color-* property values if mapped? 
+     Actually, defining them in @theme makes them available as utilities. 
+     We also want them available for standard style blocks. */
+}
+
+/* Global Resets & Styles */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Background Pattern (Art Déco Style) */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.03;
+  background-image:
+    repeating-linear-gradient(45deg,
+      transparent,
+      transparent 35px,
+      rgba(200, 162, 90, 0.1) 35px,
+      rgba(200, 162, 90, 0.1) 36px),
+    repeating-linear-gradient(-45deg,
+      transparent,
+      transparent 35px,
+      rgba(200, 162, 90, 0.1) 35px,
+      rgba(200, 162, 90, 0.1) 36px);
+  pointer-events: none;
+}
+
+/* Subtle noise texture overlay */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.015;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" /><feColorMatrix type="saturate" values="0"/></filter><rect width="300" height="300" filter="url(%23noise)" opacity="1"/></svg>');
+  pointer-events: none;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Decorative Classes */
+.greek-key-border {
+  position: relative;
+  padding: 2rem;
+}
+
+.greek-key-border::before,
+.greek-key-border::after {
+  content: '';
+  position: absolute;
+  background-image: repeating-linear-gradient(90deg,
+      var(--color-gold) 0px,
+      var(--color-gold) 10px,
+      transparent 10px,
+      transparent 20px,
+      var(--color-gold) 20px,
+      var(--color-gold) 30px,
+      transparent 30px,
+      transparent 40px);
+  height: 2px;
+  width: 100%;
+  left: 0;
+}
+
+.greek-key-border::before {
+  top: 0;
+}
+
+.greek-key-border::after {
+  bottom: 0;
 }
