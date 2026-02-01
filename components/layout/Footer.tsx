@@ -10,9 +10,9 @@ export const Footer = () => {
     const { t } = useLanguage();
 
     return (
-        <footer className="bg-bg border-t border-border pt-16 pb-8">
+        <footer className="bg-bg border-t border-border pt-10 md:pt-16 pb-8">
             <div className="container mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 text-center md:text-left">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-10 md:mb-12 text-center md:text-left">
                     {/* Column 1: Brand */}
                     <div className="flex flex-col items-center md:items-start">
                         <h3 className="font-heading text-3xl text-gold mb-4">AYNI</h3>

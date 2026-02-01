@@ -8,7 +8,7 @@ export const ContactForm = () => {
     const { t } = useLanguage();
 
     return (
-        <div className="bg-surface p-8 md:p-10 border border-gold/20 rounded-sm relative overflow-hidden">
+        <div className="bg-surface p-6 md:p-10 border border-gold/20 rounded-sm relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold to-transparent opacity-50"></div>
 
             <h3 className="font-heading text-3xl text-white mb-2">{t.contact.form.send}</h3>
@@ -17,7 +17,7 @@ export const ContactForm = () => {
             </p>
 
             <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <div className="space-y-2">
                         <label className="text-xs uppercase tracking-widest text-gold-light">{t.contact.form.name}</label>
                         <input

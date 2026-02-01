@@ -21,10 +21,10 @@ export const Section: React.FC<SectionProps> = ({
     noSeparator = false,
 }) => {
     return (
-        <section id={id} className={`py-16 md:py-24 relative ${className}`}>
+        <section id={id} className={`py-10 md:py-24 relative ${className}`}>
             <div className={`container mx-auto ${containerClassName}`}>
                 {(title || subtitle) && (
-                    <div className="text-center mb-12 animate-fade-in">
+                    <div className="text-center mb-10 md:mb-12 animate-fade-in">
                         {title && (
                             <h2 className="text-3xl md:text-4xl lg:text-5xl text-gold mb-4">
                                 {title}

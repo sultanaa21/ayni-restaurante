@@ -10,7 +10,7 @@ export const LocationSection = () => {
 
     return (
         <Section title={t.home.location.title} className="bg-bg relative">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
                 <div className="space-y-8 order-2 lg:order-1">
                     <div className="bg-surface p-8 border border-gold/20 rounded-sm">
                         <h3 className="font-heading text-2xl text-gold mb-6">{t.home.location.openTitle}</h3>
@@ -36,7 +36,7 @@ export const LocationSection = () => {
                     </div>
                 </div>
 
-                <div className="h-[400px] w-full rounded-sm overflow-hidden border border-gold/20 order-1 lg:order-2 filter grayscale hover:grayscale-0 transition-all duration-700">
+                <div className="h-[300px] md:h-[400px] w-full rounded-sm overflow-hidden border border-gold/20 order-1 lg:order-2 filter grayscale hover:grayscale-0 transition-all duration-700">
                     <iframe
                         src={siteConfig.location.mapUrl}
                         width="100%"

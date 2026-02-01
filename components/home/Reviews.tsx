@@ -30,7 +30,7 @@ export const Reviews = () => {
 
     return (
         <Section title={t.home.reviewsTitle} className="bg-surface/30">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                 {reviews.map((review, idx) => (
                     <Card key={idx} className="text-center border-gold/10">
                         <div className="w-12 h-12 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center text-gold font-heading text-xl mx-auto mb-4">

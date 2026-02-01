@@ -25,7 +25,7 @@ export const FeaturedDishes = () => {
                 {highlightedItems.map((item, index) => (
                     <Card key={index} className="h-full flex flex-col group">
                         {/* Placeholder Image Gradient */}
-                        <div className="h-48 w-full bg-gradient-to-br from-surface to-[#1a202c] mb-4 rounded-sm border border-gold/10 flex items-center justify-center relative overflow-hidden">
+                        <div className="h-40 md:h-48 w-full bg-gradient-to-br from-surface to-[#1a202c] mb-4 rounded-sm border border-gold/10 flex items-center justify-center relative overflow-hidden">
                             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                             <span className="text-gold/20 font-heading text-4xl">AYNI</span>
                         </div>
