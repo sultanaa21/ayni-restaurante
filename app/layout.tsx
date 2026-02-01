@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 import { LanguageProvider } from '@/context/LanguageContext';
+import { CookieBanner } from '@/components/ui/CookieBanner';
 
 export default function RootLayout({
   children,
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body className="font-sans bg-bg text-text antialiased selection:bg-gold/30 selection:text-white">
         <LanguageProvider>
           {children}
+          <CookieBanner />
         </LanguageProvider>
       </body>
     </html>

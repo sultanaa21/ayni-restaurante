@@ -65,8 +65,8 @@ export const Footer = () => {
                 <div className="border-t border-border/30 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-muted/50">
                     <p>© {currentYear} {siteConfig.name}. {t.footer.rights}</p>
                     <div className="flex gap-4 mt-4 md:mt-0">
-                        <Link href="#" className="hover:text-muted transition-colors">{t.footer.privacy}</Link>
-                        <Link href="#" className="hover:text-muted transition-colors">{t.footer.cookies}</Link>
+                        <Link href="/privacidad" className="hover:text-muted transition-colors">{t.footer.privacy}</Link>
+                        <Link href="/cookies" className="hover:text-muted transition-colors">{t.footer.cookies}</Link>
                     </div>
                 </div>
             </div>
