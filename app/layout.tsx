@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-touch-icon.png",
   },
+  verification: {
+    google: "D3z-WLyvKhZf1FajSSGiOZQAoJKFj-By2h0gwH4Af6c",
+  },
 };
 
 import { LanguageProvider } from '@/context/LanguageContext';
